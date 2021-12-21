@@ -2,5 +2,5 @@ log/
 .fdk/
 dist/
 coverage/
-**/node_modules/**
+server/node_modules/
 .report.json
