@@ -31,10 +31,10 @@
   },
   "whitelisted-domains": ["https://*.freshteam.com"],
   "dependencies": {
-    "@freshworks/api-sdk": "~0.1.0"
+    "@freshworks/api-sdk": "~0.2.1"
   },
   "engines": {
     "node": "12.22.7",
-    "fdk": "7.1.0"
+    "fdk": "7.4.0"
   }
 }
