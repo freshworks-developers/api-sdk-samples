@@ -5,7 +5,7 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "@freshworks/api-sdk": "~0.1.0",
+    "@freshworks/api-sdk": "~0.2.1",
     "express": "~4.16.1",
     "http-errors": "~1.8.1"
   }
