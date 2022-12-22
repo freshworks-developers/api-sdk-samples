@@ -11,7 +11,8 @@ const FT = new Freshteam(domain, apiKey);
  */
 router.get('/list', async function(request, response) {
     try {
-      const employeesList = await FT.employees.list();
+      const res = await FT.employees.list();
+      const employeesList = res.json();
       console.info('Successfully fetched employee list');
       console.info(employeesList);
       response.status(200).json(employeesList);
@@ -27,7 +28,8 @@ router.get('/list', async function(request, response) {
  */
 router.get('/:employeeId', async function(request, response){
     try {
-      const employee = await FT.employees.get(request.params.employeeId);
+      const res = await FT.employees.get(request.params.employeeId);
+      const employee = res.json();
       console.info('Successfully fetched employee details for', request.params.employeeId);
       console.info(employee);
       response.status(200).json(employee);
@@ -50,7 +52,8 @@ router.post('/', async function(request, response){
   );
 
   try {
-    const employeeCreate = await FT.employees.create(employee);
+    const res = await FT.employees.create(employee);
+    const employeeCreate = res.json();
     console.info('Successfully created an employee');
     console.info(employeeCreate);
     response.status(200).send(employeeCreate);
@@ -73,7 +76,8 @@ router.put('/:employeeId', async function(request, response){
   );
 
   try {
-  const employeeUpdate = await FT.employees.update(request.params.employeeId, employee);
+  const res = await FT.employees.update(request.params.employeeId, employee);
+  const employeeUpdate = res.json();
   console.info('Successfully updated the employee details for', request.params.employeeId);
     console.info(employeeUpdate);
     response.status(200).json(employeeUpdate);
@@ -89,7 +93,8 @@ router.put('/:employeeId', async function(request, response){
  */
 router.get('/fields', async function(request, response){
     try {
-      const employeeFields = await FT.employees.fields();
+      const res = await FT.employees.fields();
+      const employeeFields = res.json();
       console.info('Successfully fetched the employee fields list');
       console.info(employeeFields);
       response.status(200).json(employeeFields);
@@ -113,7 +118,8 @@ router.post('/fields', async function(request, response){
   const employeeField = new Freshteam.models.EmployeeFieldCreate(properties);
 
   try {
-    const employeeCreateField = await FT.employees.createField(employeeField);
+    const res = await FT.employees.createField(employeeField);
+    const employeeCreateField = res.json();
     console.info('Successfully created an employee field');
     console.info(employeeCreateField);
     response.status(200).json(employeeCreateField);
