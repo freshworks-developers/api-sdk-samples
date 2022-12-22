@@ -1,11 +1,12 @@
 {
   "name": "node-server",
   "version": "1.0.0",
+  "private": true,
   "scripts": {
     "start": "node index.js"
   },
   "dependencies": {
-    "@freshworks/api-sdk": "~0.2.1",
+    "@freshworks/api-sdk": "^0.3.0",
     "express": "~4.16.1",
     "http-errors": "~1.8.1"
   }
