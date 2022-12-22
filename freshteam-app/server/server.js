@@ -13,7 +13,8 @@ exports = {
     const FT = new Freshteam(`${domain}.freshteam.com`, apiKey);
 
     try {
-      const employeesList = await FT.employees.list();
+      const res = await FT.employees.list();
+      const employeesList = res.json();
       console.info(employeesList);
       renderData(null, employeesList);
     } catch (error) {
@@ -35,7 +36,8 @@ exports = {
     const FT = new Freshteam(`${domain}.freshteam.com`, apiKey);
 
     try {
-      const employee = await FT.employees.get(args.id);
+      const res = await FT.employees.get(args.id);
+      const employee = res.json();
       console.info(employee);
       renderData(null, employee);
     } catch (error) {
@@ -64,7 +66,8 @@ exports = {
     );
 
     try {
-      const employeeCreate = await FT.employees.create(employee);
+      const res = await FT.employees.create(employee);
+      const employeeCreate = res.json();
       console.info(employeeCreate);
       renderData(null, employeeCreate);
     } catch (e) {
@@ -92,7 +95,8 @@ exports = {
       args.properties.role_ids
     );
     try {
-      const employeeUpdate = await FT.employees.update(args.properties.id, employee);
+      const res = await FT.employees.update(args.properties.id, employee);
+      const employeeUpdate = res.json();
       console.info(employeeUpdate);
       renderData(null, employeeUpdate);
     } catch (e) {
@@ -114,7 +118,8 @@ exports = {
     const FT = new Freshteam(`${domain}.freshteam.com`, apiKey);
 
     try {
-      const employeeFields = await FT.employees.fields();
+      const res = await FT.employees.fields();
+      const employeeFields = res.json();
       console.info(employeeFields);
       renderData(null, employeeFields);
     } catch (e) {
@@ -144,7 +149,8 @@ exports = {
     const employeeField = new Freshteam.models.EmployeeFieldCreate(properties);
 
     try {
-      const employeeCreateField = await FT.employees.fields.create(employeeField);
+      const res = await FT.employees.fields.create(employeeField);
+      const employeeCreateField = res.json();
       console.info(employeeCreateField);
       renderData(null, employeeCreateField);
     } catch (error) {
